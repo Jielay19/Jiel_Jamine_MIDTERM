@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PawfectFinds | Dog Breed Directory</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <aside class="sidebar">
+      <div class="brand">
+        <i class="fa-solid fa-dog brand-icon"></i>
+        <h2>PawfectFinds</h2>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="#" id="tabGallery" class="nav-item active"><i class="fa-solid fa-fire"></i> Random Gallery</a>
+        <a href="#" id="tabExplorer" class="nav-item"><i class="fa-solid fa-list"></i> Breed Explorer</a>
+      </nav>
+
+      <div class="api-info-card">
+        <h3><i class="fa-solid fa-circle-info"></i> API Integration</h3>
+        <p><strong>Source:</strong> Dog CEO Public API</p>
+        <p><strong>Endpoint:</strong> <code id="endpointText">/breeds/image/random</code></p>
+        <p><strong>HTTP Method:</strong> GET Request</p>
+        <p><strong>Authentication:</strong> Public / No Key</p>
+        <p class="api-status-badge">✨ CORS Ready & Active</p>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      
+      <header class="top-bar">
+        <div class="header-title">
+          <h1 id="viewTitle" class="bold-title">Dog Breed Directory</h1>
+        </div>
+        
+        <div id="actionControls">
+          <button id="fetchBtn" class="btn-primary">
+            <i class="fa-solid fa-arrows-rotate"></i> Discover Dogs
+          </button>
+        </div>
+      </header>
+
+      <div id="explorerInfoContainer" class="explorer-info-box hidden">
+        <div class="explorer-badge-row">
+          <span class="explorer-badge"><i class="fa-solid fa-paw"></i> Featured Breed Overview</span>
+        </div>
+        <h3 id="explorerBreedTitle">BREED NAME</h3>
+        <p id="explorerBreedDesc">Breed description goes here...</p>
+      </div>
+
+      <section class="results-section">
+        <div id="dogGrid" class="dog-grid"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <div id="randomModal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <button id="closeRandomModal" class="modal-close">&times;</button>
+      <div class="modal-img-wrapper">
+        <img id="randomModalImg" src="" alt="Dog Detail" class="modal-img">
+      </div>
+      <div class="modal-body">
+        <div class="modal-header-row">
+          <h2 id="randomModalTitle">Breed Name</h2>
+          <span class="modal-badge"><i class="fa-solid fa-heart"></i> Featured Breed</span>
+        </div>
+        <p id="randomModalDesc" class="modal-desc">Description goes here...</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="explorerModal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <button id="closeExplorerModal" class="modal-close">&times;</button>
+      <div class="modal-img-wrapper">
+        <img id="explorerModalImg" src="" alt="Dog Full Image" class="modal-img">
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
